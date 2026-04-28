@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MIRAE | 역량 및 경력</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-section {
+            padding: 150px 0 100px;
+            min-height: 100vh;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-family: 'Urbanist', sans-serif;
+            font-weight: 800;
+        }
+
+        h2 span { color: var(--point-color); }
+
+        /* Skill Bars */
+        .skill-container {
+            margin-bottom: 50px;
+        }
+
+        .skill-item {
+            margin-bottom: 30px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-bar-bg {
+            height: 10px;
+            background: var(--card-bg);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--point-color), #5eead4);
+            width: 0; /* JS로 애니메이션 처리 */
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1);
+        }
+
+        /* Roadmap Timeline */
+        .roadmap {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--card-bg);
+        }
+
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-color);
+            border: 4px solid var(--point-color);
+            border-radius: 50%;
+        }
+
+        .date {
+            color: var(--point-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: var(--text-sub);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">KIM MIRAE</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="works.html">Works</a>
+        </div>
+    </nav>
+
+    <main class="container about-section">
+        <div class="about-grid">
+            <div class="skill-section">
+                <h2>Core <span>Skills</span></h2>
+                <div class="skill-container">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>AI 활용 능력 (Gemini/ChatGPT) </span>
+                            <span>95% </span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Office 자동화 (엑셀/PPT) </span>
+                            <span>90% </span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>데이터 분석 (Python/Tableau) </span>
+                            <span>80% </span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="description">
+                    최신 생성형 AI 도구를 마케팅 워크플로우에 결합하여 업무 효율을 극대화합니다. 
+                </p>
+            </div>
+
+            <div class="roadmap-section">
+                <h2>Career <span>Roadmap</span></h2>
+                <div class="roadmap">
+                    <div class="roadmap-item">
+                        <span class="date">2025.03 ~ 2026.02 </span>
+                        <h3 class="event-title">OO 기업 AI 도입 인턴 </h3>
+                        <p class="description">워크플로우 자동화 기여 및 시스템 구축 보조 </p>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <span class="date">2024.08 </span>
+                        <h3 class="event-title">제1회 AX(AI 전환) 공모전 </h3>
+                        <p class="description">전략 부문 최우수상 수상 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 페이지 로드 후 스킬 바 애니메이션 실행
+        window.addEventListener('DOMContentLoaded', () => {
+            const progressBars = document.querySelectorAll('.skill-progress');
+            setTimeout(() => {
+                progressBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
